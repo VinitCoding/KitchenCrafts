@@ -17,8 +17,6 @@ KitchenCrafts is a web application built with ReactJS that allows users to find 
 - CSS3
 - JavaScript (ES6+)
 - [The Meal DB API](https://www.themealdb.com/api.php) API for fetching recipes
-- YouTube API for embedding videos
-- Git (for version control)
 
 ## Setup
 
