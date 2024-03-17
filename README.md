@@ -8,8 +8,6 @@ KitchenCrafts is a web application built with ReactJS that allows users to find 
 - **Recipe Details**: Detailed information about each recipe, including ingredients and instructions, is provided.
 - **YouTube Integration**: Users can watch related YouTube videos for each recipe.
 - **Responsive Design**: The application is designed to work seamlessly across different devices and screen sizes.
-- **Single Page Application**: Built with ReactJS, KitchenCrafts operates as a single-page application for smooth navigation and user experience.
-
 ## Technologies Used
 
 - ReactJS
