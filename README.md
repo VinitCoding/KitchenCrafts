@@ -23,10 +23,16 @@ KitchenCrafts is a web application built with ReactJS that allows users to find 
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/KitchenCrafts.git
+git clone https://github.com/VinitCoding/KitchenCrafts.git
 
 ```
 
 ## Navigate to the project directory:
+cd KitchenCrafts
 
+## Install dependencies:
+npm install
+
+## Run the application:
+npm run dev
 
