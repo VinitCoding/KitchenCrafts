@@ -16,6 +16,9 @@ KitchenCrafts is a web application built with ReactJS that allows users to find 
 - JavaScript (ES6+)
 - [The Meal DB API](https://www.themealdb.com/api.php) API for fetching recipes
 
+## Live
+Live link of the project - [https://kitchencrafts.vercel.app/]
+
 ## Setup
 
 ## 1. Clone the repository:
