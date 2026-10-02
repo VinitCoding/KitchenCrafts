@@ -3,20 +3,38 @@ import Card from "./Card";
 import { fetchData } from "../service/api.js";
 import toast, { Toaster } from "react-hot-toast";
 import backgroundImage from "../assets/images/main_bg.png";
+import { TailChase } from 'ldrs/react'
+import 'ldrs/react/TailChase.css'
 
 const FindMeal = () => {
   const [search, setSearch] = useState("");
   const [food, setFood] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const handleClick = async () => {
-    const value = await fetchData.bySearch(search);
-    if (value === null) {
-      toast.error("Recipe not found");
-    } else {
-      console.log(value);
-      setFood(value);
-      setSearch("");
+    setLoading(true);
+    let loadingState;
+    try {
+      const value = await fetchData.bySearch(search);
+      loadingState = setTimeout(() => {
+        setLoading(false);
+      }, 1500)
+      if (value === null) {
+        toast.error("Recipe not found");
+      } else {
+        setFood(value);
+        setSearch("");
+      }
+    } catch (error) {
+      console.error('Error while fetching data', error);
+      loadingState = setTimeout(() => {
+        setLoading(false);
+      }, 1500)
+      toast.error('Error while loading data');
+
     }
+
+    return () => { clearTimeout(loadingState) }
   };
 
   return (
@@ -49,7 +67,7 @@ const FindMeal = () => {
 
       {/* Content div */}
       <div className="flex flex-col items-center gap-5 mt-10 md:grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 md:gap-10 lg:w-fit md:w-auto sm:w-auto md:mx-auto lg:pb-5">
-        {food.map((value, index) => (
+      {!loading && food && food.map((value, index) => (
           <Card
             img={value.strMealThumb}
             data={value.strMeal}
@@ -57,12 +75,26 @@ const FindMeal = () => {
             id={value.idMeal}
           />
         ))}
-      </div>
+        </div>
       <Toaster
         toastOptions={{
           duration: 1300,
         }}
       />
+
+      {/* Loading animation */}
+      {
+        loading && (
+          <div className="flex flex-col justify-center items-center gap-5 w-full mt-16">
+            <TailChase
+              size="40"
+              speed="1.75"
+              color="white"
+            />
+            <h2 className="text-white text-xl font-semibold animate-pulse ease-in-out">Finding for best results as per your search...</h2>
+          </div>
+        )
+      }
     </div>
   );
 };
