@@ -70,7 +70,7 @@ const Home = () => {
 
       {/* footer */}
       <footer className="p-3 text-2xl text-center lg:mt-10 md:mt-10 sm:mt-10 mt-14 bg-slate-100">
-        <h1>Copyright © 2024 By Vinit Gite. All rights reserved.</h1>
+        <h1>Copyright © 2024 By <a href="https://www.artfolio.tech/vinitgite" target="_blank" className="font-semibold cursor-pointer hover:text-orange-400 transition-all duration-200 ease-in-out hover:underline">Vinit Gite</a>. All rights reserved.</h1>
       </footer>
     </div>
   );
